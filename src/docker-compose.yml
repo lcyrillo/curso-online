@@ -1,0 +1,36 @@
+
+services:
+  cursoonline.api:
+    image: cursoonlineapi
+    build:
+        context: .
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=CursoOnline;User Id=sa;Password=CompL3xP455word;
+    ports:
+      - "3000:8080"
+    networks:
+      - cursoonline
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment: 
+      - MSSQL_SA_PASSWORD=CompL3xP455word
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+      - MSSQL_AGENT_ENABLED=true
+    ports:
+      - "1433:1433"
+    networks:
+      - cursoonline
+    volumes:
+      - cursoonline_sqlserver_data:/var/opt/mssql
+
+volumes:
+  cursoonline_sqlserver_data:
+
+networks:
+  cursoonline:
+    driver: bridge

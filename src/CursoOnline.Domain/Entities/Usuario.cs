@@ -9,6 +9,6 @@ public class Usuario
     public byte[]? SenhaSalt { get; set; }
     public string Cpf { get; set; } = string.Empty;
     public int IdTipoUsuario { get; set; }
-    public string SenhaProvisoria { get; set; } = string.Empty;
+    public string? SenhaProvisoria { get; set; } = string.Empty;
     public TipoUsuario? TipoUsuario { get; set; }
 }

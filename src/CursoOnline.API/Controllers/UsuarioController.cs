@@ -1,7 +1,9 @@
 ﻿using CursoOnline.API.Helpers;
 using CursoOnline.Application.Interfaces;
 using CursoOnline.Application.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace CursoOnline.API.Controllers;
 
@@ -18,6 +20,7 @@ public class UsuarioController : ControllerBase
 
     [HttpPost]
     [Route("GerarSenha")]
+    [AllowAnonymous]
     public async Task<IActionResult> GerarSenha(UsuarioRequest usuarioRequest)
     {
         if (usuarioRequest != null)
@@ -30,6 +33,7 @@ public class UsuarioController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> Create([FromBody] UsuarioRequest usuarioRequest)
     {
         if (usuarioRequest != null)
@@ -43,6 +47,7 @@ public class UsuarioController : ControllerBase
 
     [HttpPut]
     [Route("CriarSenha")]
+    [AllowAnonymous]
     public async Task<IActionResult> GravarSenha([FromBody] UsuarioRequest usuarioRequest, [FromQuery] string password, [FromQuery] string passwordProv)
     {
         if (usuarioRequest != null)
@@ -61,6 +66,7 @@ public class UsuarioController : ControllerBase
 
     [HttpPost]
     [Route("Login")]
+    [AllowAnonymous]
     public async Task<IActionResult> Authenticate([FromBody] UsuarioLoginRequest usuarioLoginRequest)
     {
         if (usuarioLoginRequest != null)
@@ -70,7 +76,7 @@ public class UsuarioController : ControllerBase
             if (usuario == null)
                 return NotFound("Usuário não encontrado");
 
-            if (usuario.SenhaSalt == null && usuario.SenhaHash == null)
+            if (usuario.SenhaSalt.IsNullOrEmpty() && usuario.SenhaHash.IsNullOrEmpty())
                 return BadRequest(new
                 {
                     Message = "Usuário não possui senha cadastrada"

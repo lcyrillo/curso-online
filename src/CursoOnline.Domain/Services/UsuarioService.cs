@@ -35,6 +35,7 @@ public class UsuarioService : BaseService<Usuario>, IUsuarioService
 
             usuario.SenhaHash = passwordHash;
             usuario.SenhaSalt = passwordSalt;
+            usuario.SenhaProvisoria = null;
 
             _usuarioRepository.GravarSenha(usuario);
         }
@@ -47,6 +48,8 @@ public class UsuarioService : BaseService<Usuario>, IUsuarioService
         var senhaProvisoria = SenhaHelper.GerarSenhaProvisoria();
 
         usuario.SenhaProvisoria = senhaProvisoria;
+        usuario.SenhaHash = null;
+        usuario.SenhaSalt = null;
 
         return await _usuarioRepository.GravarSenha(usuario);
     }
@@ -70,6 +73,7 @@ public class UsuarioService : BaseService<Usuario>, IUsuarioService
 
             usuario.SenhaHash = passwordHash;
             usuario.SenhaSalt = passwordSalt;
+            usuario.SenhaProvisoria = null;
         }
 
         return await _usuarioRepository.GravarSenha(usuario);

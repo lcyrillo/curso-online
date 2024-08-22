@@ -15,11 +15,11 @@ public static class TokenService
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(new Claim[]
-            {
-                new Claim(ClaimTypes.Email, usuario.Email.ToString()),
-                new Claim(ClaimTypes.Role, usuario.Role.ToString())
-            }),
+            Subject = new ClaimsIdentity(
+            [
+                new Claim(ClaimTypes.Email, usuario.Email),
+                new Claim(ClaimTypes.Role, usuario.Role)
+            ]),
             Expires = DateTime.UtcNow.AddHours(2),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };

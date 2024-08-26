@@ -2,5 +2,5 @@
 
 public static class Settings
 {
-    public static string Secret = "fedaf7d8863b48e197b9287d492b708e";
+    public static string Secret = "7cd58efc3a702e98bd693fc9c453ee52a08bb41a6707bd4e8b99cdd4020c9b73";
 }

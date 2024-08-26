@@ -33,7 +33,7 @@ public class UsuarioController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "admin")]
+    [AllowAnonymous]
     public async Task<IActionResult> Create([FromBody] UsuarioRequest usuarioRequest)
     {
         if (usuarioRequest != null)

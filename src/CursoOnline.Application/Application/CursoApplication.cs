@@ -26,6 +26,21 @@ public class CursoApplication : ICursoApplication
         return _mapper.Map<CursoResponse>(result);
     }
 
+    public async Task<CursoResponse?> Approve(CursoRequest entity)
+    {
+        var cursoResult = await _cursoService.GetById(entity.Id);
+
+        if (cursoResult != null)
+        {
+            await _cursoService.Approve(cursoResult);
+            return _mapper.Map<CursoResponse?>(cursoResult);
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public async Task<CursoResponse?> Delete(int id)
     {
         var cursoResult = _cursoService.GetById(id).Result;

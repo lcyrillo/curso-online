@@ -12,6 +12,7 @@ namespace CursoOnline.Domain.Entities
         public decimal? Valor { get; private set; }
         public Professor? Professor { get; set; }
         public int? IdProfessor { get; set; }
+        public bool Aprovado { get; set; }
         public List<Aluno>? Alunos { get; set; }
         public List<CursoAluno>? CursoAlunos { get; set; }
     }

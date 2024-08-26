@@ -14,8 +14,17 @@ public class CursoService : BaseService<Curso>, ICursoService
         _cursoRepository = cursoRepository;
     }
 
+    public async Task<Curso> Approve(Curso curso)
+    {
+        curso.Aprovado = true;
+
+        return await _cursoRepository.Update(curso);
+    }
+
     public async Task<IEnumerable<Curso>> GetByName(string name)
     {
         return await _cursoRepository.GetByName(name);
     }
+
+
 }

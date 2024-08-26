@@ -1,11 +1,13 @@
 ﻿using CursoOnline.Application.Interfaces;
 using CursoOnline.Application.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CursoOnline.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize(Roles = "admin")]
 public class TipoUsuarioController : ControllerBase
 {
     private readonly ITipoUsuarioApplication _tipoUsuarioApplication;

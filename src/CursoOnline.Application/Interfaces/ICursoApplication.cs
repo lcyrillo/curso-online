@@ -11,4 +11,5 @@ public interface ICursoApplication
     Task<CursoResponse> GetById(int id);
     Task<IEnumerable<CursoResponse>> GetByName(string name);
     Task<CursoResponse> Update(CursoRequest entity);
+    Task<CursoResponse?> Approve(CursoRequest entity);
 }

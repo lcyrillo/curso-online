@@ -45,6 +45,10 @@ public class CursoOnlineContext : DbContext
 
             entity.Property(e => e.Valor);
 
+            entity.Property(e => e.Aprovado)
+                  .HasColumnType("bit")
+                  .HasDefaultValue(0);
+
             entity.HasOne(e => e.Professor).WithMany(p => p.Cursos);
 
             entity.HasMany(e => e.Alunos).WithMany(p => p.Cursos)

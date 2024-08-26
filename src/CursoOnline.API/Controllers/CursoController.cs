@@ -1,11 +1,13 @@
 ﻿using CursoOnline.Application.Interfaces;
 using CursoOnline.Application.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CursoOnline.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize(Roles = "admin,user")]
 public class CursoController : ControllerBase
 {
     private readonly ICursoApplication _cursoApplication;
@@ -58,6 +60,18 @@ public class CursoController : ControllerBase
         if (response != null)
             return Ok(response);
         else
+            return BadRequest();
+    }
+
+    [HttpPatch]
+    [Authorize(Roles = "admin")]
+    public async Task<IActionResult> Approve([FromQuery] CursoRequest cursoRequest)
+    {
+        var response = await _cursoApplication.Approve(cursoRequest);
+
+        if (response != null) 
+            return Ok(response);
+        else 
             return BadRequest();
     }
 }

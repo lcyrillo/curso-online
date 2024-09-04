@@ -5,7 +5,7 @@ services:
     build:
         context: .
     environment:
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=CursoOnline;User Id=sa;Password=CompL3xP455word;
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=CursoOnline;User Id=sa;Password=!V3ryCompL3xP455word;
     ports:
       - "3000:8080"
     networks:

@@ -36,7 +36,7 @@ public class UsuarioRepository : BaseRepository<Usuario>, IUsuarioRepository
 
     public async Task<Usuario?> GetBySenhaProv(Usuario usuario, string senhaProv)
     {
-        return await _context.Usuarios.Where(x => x.SenhaProvisoria == senhaProv && x.Id == usuario.Id && x.Email == usuario.Email).FirstAsync();
+        return await _context.Usuarios.Where(x => x.SenhaProvisoria == senhaProv && x.Id == usuario.Id && x.Email == usuario.Email).FirstOrDefaultAsync();
     }
 
     public async Task<Usuario> GravarSenha(Usuario usuario)

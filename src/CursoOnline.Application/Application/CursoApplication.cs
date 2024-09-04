@@ -26,9 +26,9 @@ public class CursoApplication : ICursoApplication
         return _mapper.Map<CursoResponse>(result);
     }
 
-    public async Task<CursoResponse?> Approve(CursoRequest entity)
+    public async Task<CursoResponse?> Approve(int id)
     {
-        var cursoResult = await _cursoService.GetById(entity.Id);
+        var cursoResult = await _cursoService.GetById(id);
 
         if (cursoResult != null)
         {
@@ -54,6 +54,13 @@ public class CursoApplication : ICursoApplication
         {
             return null;
         }
+    }
+
+    public async Task<CursoResponse?> EnrollProfessor(int idProfessor, int idCurso)
+    {
+        var result = await _cursoService.EnrollProfessor(idProfessor, idCurso);
+
+        return _mapper.Map<CursoResponse>(result);
     }
 
     public async Task<IEnumerable<CursoResponse>> GetAll()

@@ -41,7 +41,7 @@ public class CursoController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CursoRequest cursoRequest)
     {
-        await _cursoApplication.Add(cursoRequest);
+        var response = await _cursoApplication.Add(cursoRequest);
         return Created();
     }
 
@@ -64,14 +64,28 @@ public class CursoController : ControllerBase
     }
 
     [HttpPatch]
+    [Route("Approve")]
     [Authorize(Roles = "admin")]
-    public async Task<IActionResult> Approve([FromQuery] CursoRequest cursoRequest)
+    public async Task<IActionResult> Approve([FromQuery] int id)
     {
-        var response = await _cursoApplication.Approve(cursoRequest);
+        var response = await _cursoApplication.Approve(id);
 
         if (response != null) 
             return Ok(response);
         else 
+            return BadRequest();
+    }
+
+    [HttpPatch]
+    [Route("EnrollProfessor")]
+    [Authorize(Roles = "admin")]
+    public async Task<IActionResult> EnrollProfessor([FromQuery] int idProfessor, [FromQuery] int idCurso)
+    {
+        var response = await _cursoApplication.EnrollProfessor(idProfessor, idCurso);
+
+        if (response != null)
+            return Ok(response);
+        else
             return BadRequest();
     }
 }

@@ -47,7 +47,7 @@ public class CursoOnlineContext : DbContext
 
             entity.Property(e => e.Aprovado)
                   .HasColumnType("bit")
-                  .HasDefaultValue(0);
+                  .HasDefaultValueSql();
 
             entity.HasOne(e => e.Professor).WithMany(p => p.Cursos);
 

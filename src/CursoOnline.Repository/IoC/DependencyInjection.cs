@@ -39,6 +39,7 @@ public static class DependencyInjection
         services.AddScoped<IBaseService<TipoUsuario>, TipoUsuarioService>();
         services.AddScoped<IBaseService<Curso>, CursoService>();
         services.AddScoped<IBaseService<Usuario>, UsuarioService>();
+        services.AddScoped<IBaseService<Professor>, ProfessorService>();
         services.AddScoped<ITipoUsuarioService, TipoUsuarioService>();
         services.AddScoped<ICursoService, CursoService>();
         services.AddScoped<IUsuarioService, UsuarioService>();
@@ -47,9 +48,11 @@ public static class DependencyInjection
         services.AddScoped<IBaseRepository<TipoUsuario>, TipoUsuarioRepository>();
         services.AddScoped<IBaseRepository<Curso>, CursoRepository>();
         services.AddScoped<IBaseRepository<Usuario>, UsuarioRepository>();
+        services.AddScoped<IBaseRepository<Professor>, ProfessorRepository>();
         services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
         services.AddScoped<ICursoRepository, CursoRepository>();
         services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+        services.AddScoped<IProfessorRepository, ProfessorRepository>();
 
         return services;
     }

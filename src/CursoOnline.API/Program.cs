@@ -25,12 +25,6 @@ builder.Services.AddDbContext<CursoOnlineContext>(options =>
            .EnableSensitiveDataLogging();
 });
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-});
-
 // IoC
 
 //application
@@ -118,6 +112,8 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("user", policy => policy.RequireClaim("Store", "user"));
     options.AddPolicy("admin", policy => policy.RequireClaim("Store", "admin"));
+    options.AddPolicy("professor", policy => policy.RequireClaim("Store", "professor"));
+    options.AddPolicy("aluno", policy => policy.RequireClaim("Store", "aluno"));
 });
 
 builder.Services.AddMvc(config =>

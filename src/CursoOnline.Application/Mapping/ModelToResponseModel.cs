@@ -11,6 +11,5 @@ public class ModelToResponseModel : Profile
         CreateMap<TipoUsuario, TipoUsuarioResponse>().ReverseMap();
         CreateMap<Curso, CursoResponse>().ReverseMap();
         CreateMap<Usuario, UsuarioResponse>().ReverseMap();
-        CreateMap<Usuario, UsuarioLoginResponse>().ReverseMap();
     }
 }

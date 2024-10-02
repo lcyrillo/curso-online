@@ -79,10 +79,10 @@ public class UsuarioApplication : IUsuarioApplication
         return _mapper.Map<IEnumerable<UsuarioResponse>>(result);
     }
 
-    public async Task<UsuarioLoginResponse?> GetByMail(string email)
+    public async Task<UsuarioResponse?> GetByMail(string email)
     {
         var result = await _usuarioService.GetByMail(email);
-        return _mapper.Map<UsuarioLoginResponse>(result);
+        return _mapper.Map<UsuarioResponse>(result);
     }
 
     public async Task<UsuarioResponse> GetById(int id)

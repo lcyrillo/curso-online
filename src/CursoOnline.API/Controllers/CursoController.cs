@@ -31,7 +31,7 @@ public class CursoController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("{name:string}")]
+    [HttpGet("{name}")]
     public async Task<IActionResult> GetByName([FromRoute] string name)
     {
         var response = await _cursoApplication.GetByName(name);

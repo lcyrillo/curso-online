@@ -9,7 +9,7 @@ public interface IUsuarioApplication
     Task<UsuarioResponse?> Delete(int id);
     Task<IEnumerable<UsuarioResponse>> GetAll();
     Task<UsuarioResponse> GetById(int id);
-    Task<UsuarioLoginResponse?> GetByMail(string email);
+    Task<UsuarioResponse?> GetByMail(string email);
     Task<UsuarioResponse> Update(UsuarioRequest usuarioRequest);
     Task<UsuarioResponse> AlterarSenha(UsuarioRequest usuarioRequest, string password);
     Task<UsuarioResponse> GerarSenha(UsuarioRequest usuarioRequest);

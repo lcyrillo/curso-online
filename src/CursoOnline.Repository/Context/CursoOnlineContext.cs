@@ -43,7 +43,8 @@ public class CursoOnlineContext : DbContext
             entity.Property(e => e.IdProfessor)
                   .HasColumnName("ID_PROFESSOR");
 
-            entity.Property(e => e.Valor);
+            entity.Property(e => e.Valor)
+                   .HasColumnType("decimal");
 
             entity.Property(e => e.Aprovado)
                   .HasColumnType("bit")

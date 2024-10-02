@@ -1,17 +1,22 @@
 
 services:
   cursoonline.api:
-    image: cursoonlineapi
     build:
         context: .
-    environment:
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=CursoOnline;User Id=sa;Password=!V3ryCompL3xP455word;
+        target: development
     ports:
-      - "3000:8080"
-    networks:
-      - cursoonline
+      - 8080:80
     depends_on:
       - sqlserver
+    develop:
+      watch:
+        - action: rebuild
+          path: .
+    networks:
+      - cursoonline
+    environment:
+       - ASPNETCORE_ENVIRONMENT=Development
+       - ASPNETCORE_URLS=http://+:80'
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -22,7 +27,7 @@ services:
       - MSSQL_PID=Developer
       - MSSQL_AGENT_ENABLED=true
     ports:
-      - "1433:1433"
+      - 1433:1433
     networks:
       - cursoonline
     volumes:

@@ -3,7 +3,6 @@ services:
   cursoonline.api:
     build:
         context: .
-        target: development
     ports:
       - 8080:80
     depends_on:
@@ -17,6 +16,7 @@ services:
     environment:
        - ASPNETCORE_ENVIRONMENT=Development
        - ASPNETCORE_URLS=http://+:80'
+       - MSSQL_SA_PASSWORD=CompL3xP455word
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -24,8 +24,6 @@ services:
     environment: 
       - MSSQL_SA_PASSWORD=CompL3xP455word
       - ACCEPT_EULA=Y
-      - MSSQL_PID=Developer
-      - MSSQL_AGENT_ENABLED=true
     ports:
       - 1433:1433
     networks:

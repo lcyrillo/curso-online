@@ -21,7 +21,7 @@ public class UsuarioController : ControllerBase
     [HttpPost]
     [Route("GerarSenha")]
     [AllowAnonymous]
-    public async Task<IActionResult> GerarSenha(UsuarioRequest usuarioRequest)
+    public async Task<IActionResult> GerarSenha([FromBody] UsuarioRequest usuarioRequest)
     {
         if (usuarioRequest != null)
         {

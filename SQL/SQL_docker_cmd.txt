@@ -1,1 +1,2 @@
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=CompL3xP455word" -p 1433:1433 -v cursoonline_sqlserver_data:/var/opt/mssql/data --name sqlserver --hostname sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
+docker run -e "ACCEPT_EULA=Y" --user root -e "MSSQL_SA_PASSWORD=CompL3xP455word" -p 1433:1433 -v cursoonline_sqlserver_data:/var/opt/mssql/data --name sqlserver --hostname sqlserver -d mcr.m
+icrosoft.com/mssql/server:2022-latest

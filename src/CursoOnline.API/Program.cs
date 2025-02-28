@@ -96,9 +96,9 @@ builder.Services.AddCors(options =>
                       policy =>
                       {
                           policy.WithOrigins("http://localhost:4200")
-                                .WithMethods("GET", "POST", "PUT", "DELETE", "PATCH");
-                          //.AllowAnyHeader()
-                                                 
+                                .WithMethods("GET", "POST", "PUT", "DELETE", "PATCH")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
                       });
 });
 

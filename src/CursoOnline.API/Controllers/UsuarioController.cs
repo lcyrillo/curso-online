@@ -2,6 +2,7 @@
 using CursoOnline.Application.Interfaces;
 using CursoOnline.Application.Request;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 

@@ -21,7 +21,7 @@ public class CursoService : BaseService<Curso>, ICursoService
         return await _cursoRepository.Update(curso);
     }
 
-    public async Task<Curso> EnrollProfessor(int idCurso, int idProfessor)
+    public async Task<Curso> EnrollProfessor(int idProfessor, int idCurso)
     {
         //verificar se professor existe
 

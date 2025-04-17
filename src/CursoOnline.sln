@@ -29,8 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoOnline.Domain", "Curso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoOnline.Domain.Test", "CursoOnline.Domain.Test\CursoOnline.Domain.Test.csproj", "{8AE51683-AE07-4CA3-9743-D07DEA9F9C06}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{DCB47EBB-6FB9-45EB-B2DF-84C048239F85}"
-EndProject
+# Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{DCB47EBB-6FB9-45EB-B2DF-84C048239F85}"
+# EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Infrastructure", "5-Infrastructure", "{9AEA0E3E-20F1-4DD1-8D1C-442AB5FA76D5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoOnline.Infrastructure", "CursoOnline.Infrastructure\CursoOnline.Infrastructure.csproj", "{7B5A4AF7-73BD-4575-9E20-32EBD5F85EF2}"

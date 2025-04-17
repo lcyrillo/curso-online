@@ -86,5 +86,6 @@ public class UsuarioService : BaseService<Usuario>, IUsuarioService
             var computeHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             return computeHash.SequenceEqual(passwordHash);
         }
+
     }
 }
